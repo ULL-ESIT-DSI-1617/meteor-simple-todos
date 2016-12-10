@@ -6,20 +6,20 @@ import './main.html';
 Template.chuchu.onCreated(function chuchuOnCreated() {
   // counter starts at 0
   console.log(this);
-  this.counter = new ReactiveVar(0);
+  this.counter = 0;
   console.log(this.counter);
 });
 
 Template.chuchu.helpers({
   counter() {
-    console.log(Template.instance().counter.get());
-    return Template.instance().counter.get();
+    console.log(Template.instance().counter);
+    return Template.instance().counter;
   },
 });
 
 Template.chuchu.events({
   'click button'(event, instance) {
     // increment the counter when button is clicked
-    instance.counter.set(instance.counter.get() + 1);
+    instance.counter = (instance.counter + 1);
   },
 });
