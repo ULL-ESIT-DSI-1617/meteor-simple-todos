@@ -1,25 +1,7 @@
-import { Template } from 'meteor/templating';
-import { ReactiveVar } from 'meteor/reactive-var';
-
-import './main.html';
-
-Template.chuchu.onCreated(function chuchuOnCreated() {
-  // counter starts at 0
-  console.log(this);
-  this.counter = new ReactiveVar(0);
-  console.log(this.counter);
-});
-
-Template.chuchu.helpers({
-  counter() {
-    console.log(Template.instance().counter.get());
-    return Template.instance().counter.get();
-  },
-});
-
-Template.chuchu.events({
-  'click button'(event, instance) {
-    // increment the counter when button is clicked
-    instance.counter.set(instance.counter.get() + 1);
-  },
-});
+/*
+Files inside imports/ only load if they are imported, so we'll need
+to import imports/ui/body.js from our frontend JS entrypoint
+(client/main.js---note that we remove the rest of the code from
+this file):
+*/
+import '../imports/ui/body.js';
